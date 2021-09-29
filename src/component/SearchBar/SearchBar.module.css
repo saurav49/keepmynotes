@@ -59,6 +59,7 @@
   justify-content: space-between;
   padding: 0.55em 1.5em;
   border-radius: 0.5em;
+  cursor: pointer;
 }
 
 .tag:nth-child(2n) {
@@ -94,6 +95,7 @@
   background-color: #fff;
   border-left: 3px solid #eee;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 .tagBtnIcon {
