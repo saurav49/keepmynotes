@@ -1,0 +1,18 @@
+.ColorPalatte {
+  padding: 0.3em;
+}
+
+.ColorPalatteBtn {
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin: 0em 0.5em 0em 0em;
+  cursor: pointer;
+}
+
+.ColorPalatteBtn:active,
+.ColorPalatteBtn:visited {
+  border: 1px solid #60a5fa;
+  box-shadow: #60a5fa 0px 1px 10px;
+}

@@ -1,0 +1,102 @@
+.navbar {
+  height: 18vh;
+  padding: 0em 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.navbarDark {
+  background-color: #121212;
+  color: #fff;
+}
+
+.navbarLight {
+  background-color: #fff;
+  color: #121212;
+}
+
+.brandName {
+  font-family: Cedarville Cursive, "sans-serif";
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brandIcon {
+  margin-right: 0.5em;
+}
+
+.brandIconDark {
+  background-color: #fff;
+}
+
+li {
+  list-style-type: none;
+  margin: 0em 0.5em;
+}
+
+.link:focus,
+.link:visited,
+.link:active,
+.link:link {
+  text-decoration: none;
+  margin: 0.2em 0.4em 0em 0em;
+  font-weight: 600;
+}
+
+.userAccess {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0em 1em;
+}
+
+.linkDark {
+  color: #fff;
+}
+
+.linkLight {
+  color: #333;
+}
+
+.linkbtn {
+  border: 1px solid #333;
+  border-radius: 0.5em;
+  padding: 0.3em 0.7em;
+}
+
+.linkBtnDark {
+  background-color: #fff;
+  color: #333;
+}
+
+.linkBtnLight {
+  background-color: #333;
+  color: #fff;
+}
+
+.logoutBtn {
+  border: none;
+  background: none;
+  margin: 0em 1em 0em 0.5em;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.logoutBtnDark {
+  color: #fff;
+}
+
+.logoutBtnLight {
+  color: #333;
+}
+
+@media screen and (max-width: 500px) {
+  .navbar {
+    flex-direction: column;
+    padding: 0.7em 0em;
+    height: 25vh;
+  }
+}

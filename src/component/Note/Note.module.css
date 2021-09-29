@@ -1,0 +1,82 @@
+.note {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2em;
+  margin: 1em auto;
+  border-radius: 0.5em;
+  max-width: 420px;
+  width: 40%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.noteTitle {
+  width: 90%;
+}
+
+.noteTitle > p {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: rgb(71, 71, 71);
+  margin: 0.3em 0em 0.5em 0em;
+}
+
+.noteTools {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1em;
+}
+
+.colorPalatteAndTools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.titleAndPin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.deleteBtn {
+  border: none;
+  background: none;
+  margin: 0.5em 1em 0em 0.2em;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.saveBtn {
+  background: none;
+  border: none;
+  font-weight: 800;
+  margin: 0em 1em;
+  color: #34d399;
+  cursor: pointer;
+}
+
+.saveBtn[disabled] {
+  color: rgba(49, 49, 49, 0.3);
+  cursor: not-allowed;
+}
+
+.pinBtn {
+  border: none;
+  background: none;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.pinIcon {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 766px) {
+  .note {
+    width: 90%;
+    margin: 1em auto;
+  }
+}

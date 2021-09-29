@@ -1,0 +1,91 @@
+.landing {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 82vh;
+}
+
+.landingDark {
+  background-color: #333;
+  color: #fff;
+}
+
+.landingLight {
+  background-color: rgb(245, 245, 245);
+  color: #333;
+}
+
+.landingInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-left: 2em;
+  padding: 1em;
+}
+
+.landingInfo > * {
+  margin-bottom: 0.4em;
+}
+
+.brandName {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brandIcon {
+  margin-right: 0.5em;
+}
+
+.btn {
+  padding: 0.8em 1.2em;
+  background-color: #fff;
+  margin: 1em 0em;
+  border-radius: 0.5em;
+  border: none;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btnDark {
+  border: 1px solid #333;
+  background-color: #fff;
+  color: #333;
+}
+
+.btnDark:hover {
+  border: 1px solid #fff;
+  background-color: #333;
+  color: #fff;
+}
+
+.btnLight {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.btnLight:hover {
+  border: 1px solid #333;
+  background-color: #fff;
+  color: #333;
+}
+
+.brandImage {
+  width: 45%;
+}
+
+@media screen and (max-width: 750px) {
+  .brandImage {
+    display: none;
+  }
+
+  .landingInfo {
+    align-items: center;
+    justify-content: center;
+  }
+}

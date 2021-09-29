@@ -1,0 +1,13 @@
+.home {
+  margin: 0;
+  padding: 2em 0em 1em 0em;
+  min-height: 100vh;
+}
+
+.homeDark {
+  background-color: #333;
+}
+
+.homeLight {
+  background-color: rgb(245, 245, 245);
+}

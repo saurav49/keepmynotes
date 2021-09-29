@@ -1,0 +1,122 @@
+.searchAndTagWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2em auto 0em auto;
+
+  width: 90%;
+  max-width: 550px;
+
+  position: relative;
+}
+
+.searchBarWrapper {
+  display: flex;
+  align-items: center;
+
+  width: 70%;
+  padding: 0.7em 1.2em;
+
+  border-top-left-radius: 0.5em;
+  border-bottom-left-radius: 0.5em;
+  background-color: #fff;
+  box-shadow: rgba(212, 212, 212, 0.35) 0px 5px 15px;
+  border: 1px solid #eee;
+}
+
+.searchBar {
+  padding: 0.5em;
+  width: 100%;
+}
+
+.searchBar::placeholder {
+  font-weight: 600;
+  color: rgb(124, 124, 124);
+  font-size: 1rem;
+}
+
+.searchBarIcon {
+  font-size: 1.4rem;
+  margin-right: 0.35em;
+}
+
+.tagEditWrapper {
+  border: 1px solid #eee;
+  box-shadow: rgba(212, 212, 212, 0.35) 0px 5px 15px;
+  border-radius: 0.5em;
+  width: 280px;
+  text-align: center;
+  position: absolute;
+  top: 53px;
+  right: 0px;
+  background-color: #fff;
+}
+
+.tag {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.55em 1.5em;
+  border-radius: 0.5em;
+}
+
+.tag:nth-child(2n) {
+  background-color: #eee;
+  border-radius: 0em;
+}
+
+.tagName {
+  width: 70%;
+  text-align: left;
+}
+
+.tagBtn {
+  margin-top: 2em;
+}
+
+.tagBtnWrapper {
+  width: 30%;
+  color: #fff;
+}
+
+.tagBtnWrapper > button {
+  padding: 0.9em 0em;
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-weight: 600;
+  color: #333;
+  background-color: #fff;
+  border-left: 3px solid #eee;
+  font-size: 1rem;
+}
+
+.tagBtnIcon {
+  margin-left: 1em;
+}
+
+.addTag {
+  background-color: #ddd;
+  margin: 0.5em;
+  padding: 0.85em 1.25em;
+  width: 90%;
+}
+
+.tagDeleteBtn {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 500px) {
+  .searchBarWrapper {
+    width: 60%;
+  }
+
+  .tagBtnWrapper {
+    width: 40%;
+  }
+}

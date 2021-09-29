@@ -1,0 +1,97 @@
+.editNotePlaceholder {
+  border-radius: 0.5em;
+  padding: 1em 2em;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 550px;
+}
+
+.editNotePlaceholderDark {
+  background-color: #fff;
+  color: rgb(117, 117, 117);
+  box-shadow: rgba(212, 212, 212, 0.35) 0px 5px 15px;
+}
+
+.editNotePlaceholderLight {
+  background-color: #fff;
+  color: #333;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.editNote {
+  border-radius: 0.5em;
+  padding: 1em;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+}
+
+.titlePinComponent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editNoteTools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0em 0.5em;
+}
+
+.title {
+  padding: 1em;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  width: 80%;
+}
+
+.title::placeholder {
+  color: rgb(117, 117, 117);
+}
+
+.body {
+  width: 90%;
+  padding: 1em;
+  border: none;
+  margin: 0 auto;
+  resize: none;
+  overflow: hidden;
+}
+
+.pinIcon {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: #34d399;
+  font-weight: 800;
+  padding: 1em;
+  text-transform: uppercase;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.addBtn {
+  border-radius: 0.5em;
+  background-color: #34d399;
+  color: #fff;
+  padding: 0.5em 1.5em;
+  border: 1px solid #34d399;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-left: 0.75rem;
+  cursor: pointer;
+}
+
+.pinBtn {
+  border: none;
+  background: none;
+  padding: 1em;
+  cursor: pointer;
+}

@@ -1,0 +1,51 @@
+.notesWrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 1em 0em;
+}
+
+.notesWrapper > h2 {
+  margin: 1em 2em;
+}
+
+.notes {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.noteMsg {
+  margin-left: 4rem;
+}
+
+.noteMsgDark {
+  color: #fff;
+}
+
+.noteMsgLight {
+  color: #333;
+}
+
+.darkHeadingTwo {
+  color: #fff;
+}
+
+.lightHeadingTwo {
+  color: #333;
+}
+
+/* .notesWrapper > div {
+  border: 1px solid blue;
+}
+
+@media screen and (max-width: 766px) {
+  .notesWrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .notesWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+} */

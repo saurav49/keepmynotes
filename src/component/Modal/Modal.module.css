@@ -1,0 +1,68 @@
+.modalWrapper {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  border: 1px solid #eee;
+  border-radius: 0.5em;
+  box-shadow: rgba(212, 212, 212, 0.35) 0px 5px 15px;
+  width: 300px;
+  background-color: #fff;
+  color: #333;
+  padding: 2em 1em;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.modal > * {
+  margin: 0.4em auto;
+}
+
+.modal > h3 {
+  color: rgb(65, 65, 65);
+}
+
+.modal > p {
+  color: rgb(94, 94, 94);
+}
+
+.modalIcon {
+  font-size: 3rem;
+}
+
+.btns {
+  width: 100%;
+}
+
+.btns > button {
+  padding: 0.5em 1.75em;
+  border-radius: 0.5em;
+  margin: 0.5em 0.35em;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.cancelBtn {
+  border: 1px solid #eee;
+  background-color: rgb(129, 129, 129);
+}
+
+.deleteBtn {
+  border: 1px solid #f87171;
+  background-color: #f87171;
+}
