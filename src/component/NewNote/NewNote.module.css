@@ -10,12 +10,14 @@
   background-color: #fff;
   color: rgb(117, 117, 117);
   box-shadow: rgba(212, 212, 212, 0.35) 0px 5px 15px;
+  /* box-shadow: rgba(212, 212, 212, 0.35) 0px 5px 15px; */
 }
 
 .editNotePlaceholderLight {
   background-color: #fff;
   color: #333;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(212, 212, 212, 0.35) 0px 5px 15px;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
 }
 
 .editNote {

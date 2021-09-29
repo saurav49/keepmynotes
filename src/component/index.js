@@ -10,6 +10,7 @@ import { AutoTextArea } from "./AutoTextArea/AutoTextArea";
 import { Note } from "./Note/Note";
 import { Modal } from "./Modal/Modal";
 import { SearchBar } from "./SearchBar/SearchBar";
+import { Footer } from "./Footer/Footer";
 
 export {
   Landing,
@@ -24,4 +25,5 @@ export {
   Note,
   Modal,
   SearchBar,
+  Footer,
 };

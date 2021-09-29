@@ -40,11 +40,15 @@ const Notes = () => {
       setOthersTagList([]);
     } else {
       setSelectTag(selectedTag);
-      const tagList = notes.filter((note) => note.tag === selectTag);
+
+      const tagList = notes.filter((note) => note.tag === selectedTag);
 
       if (tagList.length > 0) {
         setPinnedTagList(tagList.filter((note) => note.isPin));
         setOthersTagList(tagList.filter((note) => !note.isPin));
+      } else {
+        setPinnedTagList([]);
+        setOthersTagList([]);
       }
     }
   };

@@ -62,10 +62,10 @@
   cursor: pointer;
 }
 
-.tag:nth-child(2n) {
+/* .tag:nth-child(2n) {
   background-color: #eee;
   border-radius: 0em;
-}
+} */
 
 .tagName {
   width: 70%;
@@ -82,7 +82,7 @@
 }
 
 .tagBtnWrapper > button {
-  padding: 0.9em 0em;
+  padding: 0.85em 0em;
   border-top-right-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
   border: none;
@@ -93,7 +93,7 @@
   font-weight: 600;
   color: #333;
   background-color: #fff;
-  border-left: 3px solid #eee;
+  border-left: 3px solid rgb(224, 224, 224);
   font-size: 1rem;
   cursor: pointer;
 }
@@ -104,7 +104,7 @@
 
 .addTag {
   background-color: #ddd;
-  margin: 0.5em;
+  margin: 0.85em;
   padding: 0.85em 1.25em;
   width: 90%;
 }
