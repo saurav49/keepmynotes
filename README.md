@@ -16,17 +16,17 @@ Live Link : https://keepsmynote.netlify.app/
 
 ## Features
 
--Responsive design
--Notes Management - Add, delete, edit notes
--Tags Management - add new/existing tags to notes,search tag
--Search note by its title
--Filter notes by Tags
--Pin/Unpin Notes
--Change color of notes
--User Management
--Login and SignUp with form validation(without any library)
--Persistant login
--Switch between Dark/Light Theme
+- Responsive design
+- Notes Management - Add, delete, edit notes
+- Tags Management - add new/existing tags to notes,search tag
+- Search note by its title
+- Filter notes by Tags
+- Pin/Unpin Notes
+- Change color of notes
+- User Management
+- Login and SignUp with form validation(without any library)
+- Persistant login
+- Switch between Dark/Light Theme
 
 ## Run Locally
 
