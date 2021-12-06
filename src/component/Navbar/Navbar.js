@@ -54,7 +54,7 @@ export const Navbar = () => {
               </li>
             </Link>
           )}
-          {token !== null ? (
+          {token ? (
             <button
               className={
                 theme === "DARK"

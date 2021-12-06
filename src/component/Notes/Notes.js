@@ -19,7 +19,7 @@ const Notes = () => {
 
   useEffect(() => {
     dispatch(loadNotes());
-  }, []);
+  }, [dispatch]);
 
   const pinnedNote = notes.filter((note) => note.isPin);
   const othersNote = notes.filter((note) => !note.isPin);
