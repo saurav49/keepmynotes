@@ -1,6 +1,6 @@
 import styles from "./SearchBar.module.css";
 import { IconContext } from "react-icons/lib";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   IoMdArrowDropdownCircle,
@@ -18,10 +18,6 @@ const SearchBar = ({ searchQuery, handleSearchQuery, handleSelectTag }) => {
   const [showModal, setShowModal] = useState(false);
   const [deleteTag, setDeleteTag] = useState("");
   let newTags = [];
-
-  useEffect(() => {
-    const tag = localStorage.setItem("allTags", JSON.stringify(tags));
-  }, [tags]);
 
   const handleNewTag = (e) => {
     if (e.key === "Enter") {
