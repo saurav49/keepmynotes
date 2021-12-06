@@ -20,8 +20,6 @@ function App() {
     if (status === "idle") {
       dispatch(loadNotes());
     }
-
-    // const tag = localStorage.setItem("allTags", JSON.stringify(tags));
   }, [status, dispatch]);
 
   return (
