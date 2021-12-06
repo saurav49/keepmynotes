@@ -1,4 +1,3 @@
-// import styles from "../NewNote/NewNote.module.css";
 import styles from "./Note.module.css";
 import { ColorPalatte, Modal } from "../index";
 import { useState, useEffect } from "react";
@@ -118,7 +117,8 @@ const Note = ({ id, title, body, color, tag, isPin }) => {
 const NoteTitle = ({ title, setEditTitle }) => {
   return (
     <div
-      contenteditable="true"
+      contentEditable="true"
+      suppressContentEditableWarning={true}
       role="textbox"
       className={styles.noteTitle}
       onInput={(e) => setEditTitle(e.target.innerText.replace(/\n/g, ""))}
@@ -151,7 +151,8 @@ const NotePin = ({ editIsPin, setEditIsPin }) => {
 const NoteBody = ({ body, setEditBody }) => {
   return (
     <div
-      contenteditable="true"
+      contentEditable="true"
+      suppressContentEditableWarning={true}
       role="textbox"
       className={styles.noteBody}
       onInput={(e) => setEditBody(e.target.innerText.replace(/\n/g, ""))}
@@ -187,7 +188,11 @@ const NoteSelect = ({ editTag, setEditTag, tags }) => {
   return (
     <select value={editTag} onChange={(e) => setEditTag(e.target.value)}>
       {tags.map((tag) => {
-        return <option value={`${tag}`}> {tag} </option>;
+        return (
+          <option key={tag} value={`${tag}`}>
+            {tag}
+          </option>
+        );
       })}
     </select>
   );

@@ -11,6 +11,7 @@ import { Note } from "./Note/Note";
 import { Modal } from "./Modal/Modal";
 import { SearchBar } from "./SearchBar/SearchBar";
 import { Footer } from "./Footer/Footer";
+import { PrivateRoute } from "./PrivateRoute";
 
 export {
   Landing,
@@ -26,4 +27,5 @@ export {
   Modal,
   SearchBar,
   Footer,
+  PrivateRoute,
 };

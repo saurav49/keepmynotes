@@ -1,12 +1,19 @@
 import { useEffect } from "react";
 import "./App.css";
-import { Landing, Navbar, Signup, Login, Home } from "./component/index";
+import {
+  Landing,
+  Navbar,
+  Signup,
+  Login,
+  Home,
+  PrivateRoute,
+} from "./component/index";
 import { Routes, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { loadNotes } from "./features/notes/noteSlice";
 
 function App() {
-  const { status, tags } = useSelector((state) => state.notes);
+  const { status } = useSelector((state) => state.notes);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -14,7 +21,7 @@ function App() {
       dispatch(loadNotes());
     }
 
-    const tag = localStorage.setItem("allTags", JSON.stringify(tags));
+    // const tag = localStorage.setItem("allTags", JSON.stringify(tags));
   }, [status, dispatch]);
 
   return (
@@ -24,7 +31,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/home" element={<Home />} />
+        <PrivateRoute path="/home" element={<Home />} />
       </Routes>
     </div>
   );

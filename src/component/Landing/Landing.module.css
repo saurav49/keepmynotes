@@ -87,5 +87,7 @@
   .landingInfo {
     align-items: center;
     justify-content: center;
+    text-align: center;
+    margin-left: 0em;
   }
 }

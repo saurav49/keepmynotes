@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
 import { useTheme } from "../../hooks/index";
@@ -5,23 +6,42 @@ import { HiEye, HiOutlineEyeOff, RiLoginCircleLine } from "../../Icons/Icons";
 import { useAuth } from "../../hooks/index";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { checkInputField } from "../../utils";
 
 const Login = () => {
   const navigate = useNavigate();
   const { theme } = useTheme();
-  const {
-    email,
-    setEmail,
-    password,
-    setPassword,
-    showPassword,
-    setShowPassword,
-    error,
-    handleLogin,
-  } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
+
+  const { handleLogin } = useAuth();
 
   const navigateToSignUpPage = () => {
     navigate("/SignUp");
+  };
+
+  const handleUserCredentials = async (email, password) => {
+    if (checkInputField(email) === "EMPTY") {
+      return setError("Email cannot be Empty");
+    }
+
+    if (checkInputField(password) === "EMPTY") {
+      return setError("Password cannot be Empty");
+    }
+
+    const responseStatus = await handleLogin({ email, password });
+    if (responseStatus) {
+      setEmail("");
+      setPassword("");
+      setError("");
+      setShowPassword(false);
+    } else {
+      setEmail("");
+      setPassword("");
+      setShowPassword(false);
+    }
   };
 
   return (
@@ -91,8 +111,7 @@ const Login = () => {
               ? `${styles.btn} ${styles.btnDark}`
               : `${styles.btn} ${styles.btnLight}`
           }
-          onClick={() => handleLogin({ email, password })}
-          disabled={error.length > 0}
+          onClick={() => handleUserCredentials(email, password)}
         >
           Login <RiLoginCircleLine className={styles.btnIcon} />
         </button>

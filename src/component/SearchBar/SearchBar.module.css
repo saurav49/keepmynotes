@@ -82,7 +82,7 @@
 }
 
 .tagBtnWrapper > button {
-  padding: 0.85em 0em;
+  padding: 0.9em 0em;
   border-top-right-radius: 0.5em;
   border-bottom-right-radius: 0.5em;
   border: none;
@@ -120,5 +120,15 @@
 
   .tagBtnWrapper {
     width: 40%;
+  }
+
+  .tagBtnWrapper > button {
+    padding: 0.87em 0em;
+  }
+}
+
+@media screen and (max-width: 311px) {
+  .tagBtnWrapper > button {
+    padding: 0.5em 0em;
   }
 }

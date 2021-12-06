@@ -110,7 +110,11 @@ const TagSelectorAndInput = ({
     <div className={styles.tagEditWrapper}>
       {newTags.map((tag) => {
         return (
-          <div className={styles.tag} onClick={() => handleSelectTag(tag)}>
+          <div
+            className={styles.tag}
+            onClick={() => handleSelectTag(tag)}
+            key={tag}
+          >
             <p className={styles.tagName}>{tag}</p>
             <IconContext.Provider value={{ color: "#EF4444", size: "1.2em" }}>
               <AiOutlineDelete

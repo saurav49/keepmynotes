@@ -84,7 +84,11 @@ const NewNote = () => {
             <div>
               <select value={tag} onChange={(e) => setTag(e.target.value)}>
                 {tags.map((tag) => {
-                  return <option value={`${tag}`}>{tag}</option>;
+                  return (
+                    <option key={tag} value={`${tag}`}>
+                      {tag}
+                    </option>
+                  );
                 })}
               </select>
               <button
