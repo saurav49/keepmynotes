@@ -62,11 +62,6 @@
   cursor: pointer;
 }
 
-/* .tag:nth-child(2n) {
-  background-color: #eee;
-  border-radius: 0em;
-} */
-
 .tagName {
   width: 70%;
   text-align: left;

@@ -14,6 +14,8 @@ export const AuthProvider = ({ children }) => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    setToken("");
+    toast.success(`You have successfully logged off`);
     navigate("/");
   };
 
