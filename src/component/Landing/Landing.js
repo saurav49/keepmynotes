@@ -15,7 +15,7 @@ export const Landing = () => {
 
   useEffect(() => {
     dispatch(loadNotes(userId));
-  }, []);
+  }, [dispatch, userId]);
 
   return (
     <div

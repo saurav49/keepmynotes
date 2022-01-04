@@ -20,7 +20,7 @@ const Notes = () => {
 
   useEffect(() => {
     dispatch(loadNotes(userId));
-  }, [dispatch]);
+  }, [dispatch, userId]);
 
   console.log({ notes });
 
