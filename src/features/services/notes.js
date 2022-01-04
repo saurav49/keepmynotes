@@ -1,9 +1,10 @@
 import axios from "axios";
-import { NOTES_API, ADD_NOTES_API, EDIT_NOTES_API } from "../../urls";
+import { NOTES_API, EDIT_NOTES_API } from "../../urls";
 
-const fetchNotesData = async () => {
+const fetchNotesData = async ({ id }) => {
   try {
-    const response = await axios.get(NOTES_API);
+    const response = await axios.get(`${NOTES_API}/${id}`);
+
     return response;
   } catch (error) {
     console.log({ error });
@@ -13,7 +14,7 @@ const fetchNotesData = async () => {
 
 const deleteNote = async (id) => {
   try {
-    const response = await axios.delete(`${NOTES_API}/${id}`);
+    const response = await axios.delete(`${NOTES_API}/deleteNote/${id}`);
     return response;
   } catch (error) {
     console.log(error);
@@ -22,8 +23,10 @@ const deleteNote = async (id) => {
 };
 
 const editNote = async (itemToBeEdited) => {
+  const { id, ...items } = itemToBeEdited;
+
   try {
-    const response = await axios.post(EDIT_NOTES_API, itemToBeEdited);
+    const response = await axios.post(`${EDIT_NOTES_API}/${id}`, items);
     return response;
   } catch (error) {
     console.log("editNote", error);
@@ -31,15 +34,17 @@ const editNote = async (itemToBeEdited) => {
   }
 };
 
-const addNote = async ({ title, body, color, isPin, tag }) => {
+const addNote = async ({ userId, title, body, color, isPin, tag }) => {
   try {
-    const response = await axios.post(ADD_NOTES_API, {
+    const response = await axios.post(`${NOTES_API}/${userId}`, {
+      userId,
       title,
       body,
       color,
       isPin,
       tag,
     });
+
     return response;
   } catch (error) {
     console.log(error);

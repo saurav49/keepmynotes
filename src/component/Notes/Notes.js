@@ -4,13 +4,14 @@ import { Note } from "../index";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { loadNotes } from "../../features/notes/noteSlice";
-import { useTheme } from "../../hooks/index";
+import { useTheme, useAuth } from "../../hooks/index";
 import { SearchBar } from "../index";
 
 const Notes = () => {
   const { notes } = useSelector((state) => state.notes);
   const dispatch = useDispatch();
   const { theme } = useTheme();
+  const { userId } = useAuth();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectTag, setSelectTag] = useState("");
   const [pinnedTagList, setPinnedTagList] = useState([]);
@@ -18,8 +19,10 @@ const Notes = () => {
   const [filteredNotes, setFilteredNotes] = useState([]);
 
   useEffect(() => {
-    dispatch(loadNotes());
+    dispatch(loadNotes(userId));
   }, [dispatch]);
+
+  console.log({ notes });
 
   const pinnedNote = notes.filter((note) => note.isPin);
   const othersNote = notes.filter((note) => !note.isPin);

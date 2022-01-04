@@ -14,16 +14,27 @@ const initialState = {
   tags: JSON.parse(localStorage.getItem("allTags")) || initalTags,
 };
 
-export const loadNotes = createAsyncThunk("notes/loadNotes", async () => {
-  const response = await fetchNotesData();
+export const loadNotes = createAsyncThunk("notes/loadNotes", async (userId) => {
+  const id = userId || JSON.parse(localStorage.getItem("userId"));
+  const response = await fetchNotesData({ id });
+
   return response.data;
 });
 
 export const addNewNote = createAsyncThunk(
   "notes/addNewNote",
-  async ({ title, body, color, isPin, tag }) => {
-    const response = await addNote({ title, body, color, isPin, tag });
-    return response.data.addedNewNote;
+  async ({ userId, title, body, color, isPin, tag }) => {
+    const id = userId || JSON.parse(localStorage.getItem("userId"));
+
+    const response = await addNote({
+      userId: id,
+      title,
+      body,
+      color,
+      isPin,
+      tag,
+    });
+    return response.data.savedNewNote;
   }
 );
 
@@ -49,9 +60,18 @@ export const noteSlice = createSlice({
   initialState,
   reducers: {
     inputNewTag: (state, action) => {
+      localStorage.setItem(
+        "allTags",
+        JSON.stringify([...state.tags, action.payload])
+      );
+      console.log("here or here ");
       return { ...state, tags: [...state.tags, action.payload] };
     },
     deleteBtnPressed: (state, action) => {
+      localStorage.setItem(
+        "allTags",
+        JSON.stringify(state.tags.filter((tag) => tag !== action.payload))
+      );
       return {
         ...state,
         tags: state.tags.filter((tag) => tag !== action.payload),

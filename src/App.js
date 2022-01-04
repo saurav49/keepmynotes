@@ -11,16 +11,18 @@ import {
 import { Routes, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { loadNotes } from "./features/notes/noteSlice";
+import { useAuth } from "./hooks/index";
 
 function App() {
   const { status } = useSelector((state) => state.notes);
   const dispatch = useDispatch();
+  const { userId } = useAuth();
 
   useEffect(() => {
     if (status === "idle") {
-      dispatch(loadNotes());
+      dispatch(loadNotes(userId));
     }
-  }, [status, dispatch]);
+  }, [status, dispatch, userId]);
 
   return (
     <div className="App">

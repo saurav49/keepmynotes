@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Signup.module.css";
 import { useTheme, useAuth } from "../../hooks/index";
 import { HiEye, HiOutlineEyeOff, BsPeopleCircle } from "../../Icons/Icons";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loader from "react-loader-spinner";
 import {
   isMatch,
   checkInputField,
@@ -24,7 +25,7 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  const { handleSignUp } = useAuth();
+  const { handleSignUp, isLoading } = useAuth();
 
   const handleUserCredentials = async (
     username,
@@ -81,6 +82,18 @@ const Signup = () => {
   const navigateToLoginPage = () => {
     navigate("/login");
   };
+
+  useEffect(() => {
+    return () => {
+      setUsername();
+      setEmail();
+      setPassword();
+      setConfirmPassword();
+      setError();
+      setShowPassword(false);
+      setShowConfirmPassword(false);
+    };
+  }, []);
 
   return (
     <div
@@ -190,7 +203,13 @@ const Signup = () => {
             handleUserCredentials(username, email, password, confirmPassword)
           }
         >
-          Sign Up <BsPeopleCircle className={styles.btnIcon} />
+          {isLoading ? (
+            <Loader type="ThreeDots" color="#94a3b8" height={25} width={80} />
+          ) : (
+            <>
+              Sign Up <BsPeopleCircle className={styles.btnIcon} />
+            </>
+          )}
         </button>
       </div>
       <ToastContainer />

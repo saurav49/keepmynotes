@@ -1,12 +1,21 @@
 import { BsArrowRight } from "../../Icons/Icons";
 import styles from "./Landing.module.css";
-import { useTheme } from "../../hooks";
+import { useTheme, useAuth } from "../../hooks";
 import { BrandImage } from "../../img/index";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { loadNotes } from "../../features/notes/noteSlice";
+import { useDispatch } from "react-redux";
 
 export const Landing = () => {
   const { theme } = useTheme();
+  const { userId } = useAuth();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(loadNotes(userId));
+  }, []);
 
   return (
     <div

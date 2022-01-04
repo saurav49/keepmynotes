@@ -2,7 +2,7 @@ import styles from "./ColorPalatte.module.css";
 
 const ColorPalatte = ({ setColor }) => {
   const colors = [
-    "#FECACA",
+    "#fca5a5",
     "#A7F3D0",
     "#BFDBFE",
     "#FDE68A",

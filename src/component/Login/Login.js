@@ -1,22 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Login.module.css";
-import { useTheme } from "../../hooks/index";
+import { useTheme, useAuth } from "../../hooks/index";
 import { HiEye, HiOutlineEyeOff, RiLoginCircleLine } from "../../Icons/Icons";
-import { useAuth } from "../../hooks/index";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loader from "react-loader-spinner";
 import { checkInputField } from "../../utils";
 
 const Login = () => {
   const navigate = useNavigate();
   const { theme } = useTheme();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const defaultUser = { email: "user1@gmail.com", password: "Users49!" };
+
+  const [email, setEmail] = useState(defaultUser.email);
+  const [password, setPassword] = useState(defaultUser.password);
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
-  const { handleLogin } = useAuth();
+  const { handleLogin, isLoading } = useAuth();
 
   const navigateToSignUpPage = () => {
     navigate("/SignUp");
@@ -43,6 +45,15 @@ const Login = () => {
       setShowPassword(false);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      setEmail();
+      setPassword();
+      setShowPassword(false);
+      setError();
+    };
+  }, []);
 
   return (
     <div
@@ -113,7 +124,13 @@ const Login = () => {
           }
           onClick={() => handleUserCredentials(email, password)}
         >
-          Login <RiLoginCircleLine className={styles.btnIcon} />
+          {isLoading ? (
+            <Loader type="ThreeDots" color="#94a3b8" height={25} width={80} />
+          ) : (
+            <>
+              Login <RiLoginCircleLine className={styles.btnIcon} />
+            </>
+          )}
         </button>
       </div>
       <ToastContainer />

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "./NewNote.module.css";
-import { useTheme } from "../../hooks";
+import { useTheme, useAuth } from "../../hooks";
 import { ColorPalatte, AutoTextArea } from "../index";
 import { FaRegBookmark, FaBookmark } from "../../Icons/Icons";
 import { IconContext } from "react-icons/lib";
@@ -19,6 +19,7 @@ const NewNote = () => {
   const dispatch = useDispatch();
 
   const { tags } = useSelector((state) => state.notes);
+  const { userId } = useAuth();
 
   const clearEditNote = () => {
     setEditNote((editNote) => !editNote);
@@ -31,7 +32,14 @@ const NewNote = () => {
 
   const addNote = () => {
     dispatch(
-      addNewNote({ title, body, color: noteColor, isPin: isPinned, tag })
+      addNewNote({
+        userId,
+        title,
+        body,
+        color: noteColor,
+        isPin: isPinned,
+        tag,
+      })
     );
     setTitle("");
     setBody("");
