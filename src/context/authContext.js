@@ -7,8 +7,10 @@ import { toast } from "react-toastify";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const savedToken = JSON.parse(localStorage?.getItem("token")) || null;
-  const savedUserId = JSON.parse(localStorage?.getItem("userId")) || null;
+  const savedToken =
+    JSON.parse(localStorage?.getItem("keepmynote__token")) || null;
+  const savedUserId =
+    JSON.parse(localStorage?.getItem("keepmynote__userId")) || null;
 
   const navigate = useNavigate();
   const [token, setToken] = useState(savedToken);
@@ -16,9 +18,9 @@ export const AuthProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("userId");
-    localStorage.removeItem("allTags");
+    localStorage.removeItem("keepmynote__token");
+    localStorage.removeItem("keepmynote__userId");
+    localStorage.removeItem("keepmynote__allTags");
     setToken("");
     setUserId("");
     toast.success(`You have successfully logged off`);
@@ -32,8 +34,8 @@ export const AuthProvider = ({ children }) => {
 
       if (data.success) {
         toast.success(`${data.username} has successfully logged in`);
-        localStorage.setItem("token", JSON.stringify(data.token));
-        localStorage.setItem("userId", JSON.stringify(data.userId));
+        localStorage.setItem("keepmynote__token", JSON.stringify(data.token));
+        localStorage.setItem("keepmynote__userId", JSON.stringify(data.userId));
         setToken(data.token);
         setUserId(data.userId);
 
@@ -62,8 +64,8 @@ export const AuthProvider = ({ children }) => {
       });
 
       if (data.success) {
-        localStorage.setItem("token", JSON.stringify(data.token));
-        localStorage.setItem("userId", JSON.stringify(data.userId));
+        localStorage.setItem("keepmynote__token", JSON.stringify(data.token));
+        localStorage.setItem("keepmynote__userId", JSON.stringify(data.userId));
         toast.success(`${data.username} has successfully signed up`);
         setToken(data.token);
         setUserId(data.userId);

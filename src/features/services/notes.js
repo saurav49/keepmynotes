@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 import { NOTES_API, EDIT_NOTES_API } from "../../urls";
 
 const fetchNotesData = async ({ id }) => {
@@ -8,7 +9,7 @@ const fetchNotesData = async ({ id }) => {
     return response;
   } catch (error) {
     console.log({ error });
-    return error;
+    toast.error(error.response.data.message);
   }
 };
 
@@ -18,7 +19,7 @@ const deleteNote = async (id) => {
     return response;
   } catch (error) {
     console.log(error);
-    return error;
+    toast.error(error.response.data.message);
   }
 };
 
@@ -30,7 +31,7 @@ const editNote = async (itemToBeEdited) => {
     return response;
   } catch (error) {
     console.log("editNote", error);
-    return error;
+    toast.error(error.response.data.message);
   }
 };
 
@@ -48,7 +49,7 @@ const addNote = async ({ userId, title, body, color, isPin, tag }) => {
     return response;
   } catch (error) {
     console.log(error);
-    return error;
+    toast.error(error.response.data.message);
   }
 };
 

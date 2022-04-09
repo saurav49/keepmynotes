@@ -22,8 +22,6 @@ const Notes = () => {
     dispatch(loadNotes(userId));
   }, [dispatch, userId]);
 
-  console.log({ notes });
-
   const pinnedNote = notes.filter((note) => note.isPin);
   const othersNote = notes.filter((note) => !note.isPin);
 

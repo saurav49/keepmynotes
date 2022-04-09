@@ -12,20 +12,29 @@ import { Routes, Route } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { loadNotes } from "./features/notes/noteSlice";
 import { useAuth } from "./hooks/index";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 function App() {
   const { status } = useSelector((state) => state.notes);
   const dispatch = useDispatch();
-  const { userId } = useAuth();
+  let { userId, token } = useAuth();
+  if (!token) {
+    token = JSON.parse(localStorage?.getItem("keepmynote__token"));
+  }
+  token && (axios.defaults.headers.common["Authorization"] = token);
 
   useEffect(() => {
     if (status === "idle") {
       dispatch(loadNotes(userId));
     }
-  }, [status, dispatch, userId]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [status, userId]);
 
   return (
     <div className="App">
+      <ToastContainer />
       <Navbar />
       <Routes>
         <Route path="/" element={<Landing />} />

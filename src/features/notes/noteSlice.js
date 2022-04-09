@@ -5,35 +5,41 @@ import {
   editNote,
   addNote,
 } from "../services/notes";
-
+import { toast } from "react-toastify";
 const initalTags = ["Work", "Study", "No Tag"];
 
 const initialState = {
   status: "idle",
   notes: [],
-  tags: JSON.parse(localStorage.getItem("allTags")) || initalTags,
+  tags: JSON.parse(localStorage.getItem("keepmynote__allTags")) || initalTags,
 };
 
 export const loadNotes = createAsyncThunk("notes/loadNotes", async (userId) => {
-  const id = userId || JSON.parse(localStorage.getItem("userId"));
-  const response = await fetchNotesData({ id });
-
+  const id = userId || JSON.parse(localStorage.getItem("keepmynote__userId"));
+  let response;
+  if (id) {
+    response = await fetchNotesData({ id });
+  }
   return response.data;
 });
 
 export const addNewNote = createAsyncThunk(
   "notes/addNewNote",
   async ({ userId, title, body, color, isPin, tag }) => {
-    const id = userId || JSON.parse(localStorage.getItem("userId"));
-
-    const response = await addNote({
-      userId: id,
-      title,
-      body,
-      color,
-      isPin,
-      tag,
-    });
+    const id = userId || JSON.parse(localStorage.getItem("keepmynote__userId"));
+    let response;
+    if (id) {
+      response = await addNote({
+        userId: id,
+        title,
+        body,
+        color,
+        isPin,
+        tag,
+      });
+    } else {
+      toast.error(`Log in to start adding note`);
+    }
     return response.data.savedNewNote;
   }
 );
@@ -61,15 +67,14 @@ export const noteSlice = createSlice({
   reducers: {
     inputNewTag: (state, action) => {
       localStorage.setItem(
-        "allTags",
+        "keepmynote__allTags",
         JSON.stringify([...state.tags, action.payload])
       );
-      console.log("here or here ");
       return { ...state, tags: [...state.tags, action.payload] };
     },
     deleteBtnPressed: (state, action) => {
       localStorage.setItem(
-        "allTags",
+        "keepmynote__allTags",
         JSON.stringify(state.tags.filter((tag) => tag !== action.payload))
       );
       return {
@@ -85,7 +90,9 @@ export const noteSlice = createSlice({
     },
     [loadNotes.fulfilled]: (state, action) => {
       state.status = "fulfilled";
-      state.notes = action.payload.notes;
+      if (action.payload) {
+        state.notes = action.payload.notes;
+      }
     },
     [loadNotes.rejected]: (state, action) => {
       state.status = "error";
@@ -97,8 +104,9 @@ export const noteSlice = createSlice({
     },
     [addNewNote.fulfilled]: (state, action) => {
       state.status = "fulfilled";
-
-      state.notes = [...state.notes, action.payload];
+      if (action.payload) {
+        state.notes = [...state.notes, action.payload];
+      }
     },
     [addNewNote.rejected]: (state, action) => {
       state.status = action.error.message;
@@ -109,7 +117,9 @@ export const noteSlice = createSlice({
     },
     [deleteNoteById.fulfilled]: (state, action) => {
       state.status = "fulfilled";
-
+      if (!action.payload) {
+        return;
+      }
       const requiredIndex = state.notes.findIndex(
         (note) => note._id === action.payload
       );
@@ -132,6 +142,10 @@ export const noteSlice = createSlice({
     },
 
     [editNoteById.fulfilled]: (state, action) => {
+      state.status = "fulfilled";
+      if (!action.payload) {
+        return;
+      }
       const idToBeUpdated = action.payload.id;
       const itemsToBeUpdated = action.payload.itemsToBeUpdated;
 
